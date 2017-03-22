@@ -1,2 +1,0 @@
-# veterinaria
-veterinaria
