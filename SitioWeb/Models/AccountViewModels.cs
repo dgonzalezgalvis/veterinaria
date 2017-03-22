@@ -49,12 +49,10 @@ namespace SitioWeb.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Correo electrónico")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Cédula")]
+        public string Pin { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
@@ -65,13 +63,11 @@ namespace SitioWeb.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Correo electrónico")]
-        public string Email { get; set; }
+        [Display(Name = "Cédula")]
+        public string Pin { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 4)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
@@ -84,17 +80,14 @@ namespace SitioWeb.Models
     public class ResetPasswordViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Correo electrónico")]
+        [Display(Name = "Cédula")]
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
+        [StringLength(100, ErrorMessage = "El número de caracteres de {0} debe ser al menos {2}.", MinimumLength = 4)]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
@@ -105,8 +98,49 @@ namespace SitioWeb.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Correo electrónico")]
+        [Display(Name = "Cédula")]
         public string Email { get; set; }
+    }
+
+    public class UpdateInfoViewModel
+    {
+        [Required]
+        [Display(Name = "Apellido")]
+        public string Apellido { get; set; }
+
+        [Required]
+        [Display(Name = "Direccion")]
+        public string Direccion { get; set; }
+
+        [Required]
+        [DataType(DataType.Date)]
+        [Display(Name = "FechaNacimiento")]
+        public string FechaNacimiento { get; set; }
+
+        [Required]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+
+        [Required]
+        [Display(Name = "Sexo")]
+        public string Sexo { get; set; }
+
+        [Required]
+        [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Telefono")]
+        public string Telefono { get; set; }
+
+        [Required]
+        [Display(Name = "Tienda")]
+        public string Tienda { get; set; }
+
+        [DataType(DataType.ImageUrl)]
+        [Display(Name = "Foto")]
+        public string Foto { get; set; }
     }
 }
